@@ -1,0 +1,11 @@
+﻿@page "/login"
+<PageTitle>Login Page</PageTitle>
+
+<h3>Login</h3>
+<InputText DisplayName="username" @bind-Value="username"></InputText>
+<InputText DisplayName="password"  @bind-Value="password"></InputText>
+
+@code {
+    string username{ get; set; }
+    string password{ get; set; }
+}
