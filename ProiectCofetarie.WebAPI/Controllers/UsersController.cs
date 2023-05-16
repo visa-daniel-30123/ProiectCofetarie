@@ -19,9 +19,6 @@ namespace ProiectCofetarie.WebAPI.Controllers
         public UsersController(ProiectCofetarieWebAPIContext context)
         {
             _context = context;
-
-            _context.Users.Add(new User { Name = "Daniel", Email = "visadan", Password = "passwd" });
-            _context.SaveChanges();
         }
 
         // GET: api/Users

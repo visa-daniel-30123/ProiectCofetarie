@@ -11,6 +11,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<APIService>();
 builder.Services.AddSingleton<AppCofetarie>();
+builder.Services.AddSingleton<ListaComenzi>();
 
 var app = builder.Build();
 

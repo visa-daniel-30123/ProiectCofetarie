@@ -1,6 +1,7 @@
 ﻿@page "/fetchdata"
 @using ProiectCofetarie.Data
 @inject WeatherForecastService ForecastService
+@inject ListaComenzi comanda
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -94,7 +95,7 @@
 </style>
  
 @code {
-    public List<String> comanda = new List<String>();
+
     public int after8 = 0;
 
     public void AfterEight()

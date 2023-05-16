@@ -1,8 +1,14 @@
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ProiectCofetarie.WebAPI.Data;
+
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<ProiectCofetarieWebAPIContext>(opt => opt.UseInMemoryDatabase("users"));
+
+builder.Services.AddDbContext<ProiectCofetarieWebAPIContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ProiectCofetarieWebAPIContext;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
+    ));
 
 // Add services to the container.
 

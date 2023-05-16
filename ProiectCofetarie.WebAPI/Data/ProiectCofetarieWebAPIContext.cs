@@ -13,7 +13,8 @@ namespace ProiectCofetarie.WebAPI.Data
             : base(options)
         {
         }
-
-        public DbSet<ProiectCofetarie.Library.Models.User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Produs> Produse { get; set; }
+        public DbSet<IstoricComenzi> IstoricComenzi { get; set; }
     }
 }
