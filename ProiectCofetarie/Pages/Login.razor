@@ -1,0 +1,45 @@
+﻿@page "/login"
+@inject APIService APIService
+@inject AppCofetarie AppCofetarie
+@using ProiectCofetarie.Library;
+@using ProiectCofetarie.Library.Models;
+<PageTitle>Login Page</PageTitle>
+
+<h3>Login</h3>
+<h4>@message</h4>
+<InputText DisplayName="email" @bind-Value="username"></InputText>
+<InputText DisplayName="password"  @bind-Value="password"></InputText>
+<button class="btn btn-primary" @onclick="OnLoginClick">Click me</button>
+
+@if(AppCofetarie.IsLoggedIn){
+    <h5>Daniel</h5>
+}
+
+@code {
+    private string? username{ get; set; }
+    private string? password{ get; set; }
+    private string message { get; set; }
+
+    public void OnLoginClick()
+    {
+
+        var user = APIService.Get<User>(username);
+        if (user != null)
+        {
+            if (user.Password == password)
+            { //login
+                message = "Te-ai logat";
+                AppCofetarie.LoggedInUser = user;
+                AppCofetarie.IsLoggedIn = true;
+            }
+            else
+            {
+                message = "Nu ai reusit sa te loghezi";
+            }
+        }
+        else
+        {
+            message = "Nu exista userul";
+        }
+    }
+}

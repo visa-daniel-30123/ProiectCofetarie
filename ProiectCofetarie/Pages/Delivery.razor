@@ -1,0 +1,74 @@
+﻿@page "/delivery"
+@using ProiectCofetarie.Data
+@inject WeatherForecastService ForecastService
+
+
+
+
+
+<main>
+	<h2>Ce doriti sa comandati?</h2>
+	<h2>  </h2>
+	<form>
+		<label for="nume">Nume:</label>
+		<input type="text" id="nume" name="nume" required>
+		<h3> </h3>
+		<br>
+
+		<label for="telefon">Telefon:</label>
+		<input type="tel" id="telefon" name="telefon" required>
+		<br>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+		<br
+
+		<div class="container">
+			<input type="checkbox" /> William Tort <br />
+			<input type="checkbox" /> Nuts <br />
+			<input type="checkbox" /> Mango <br />
+			<input type="checkbox" />  CarrotCake <br />
+			<input type="checkbox" /> This is checkbox <br />
+			<input type="checkbox" /> This is checkbox <br />
+			<input type="checkbox" /> This is checkbox <br />
+			<input type="checkbox" /> This is checkbox <br />
+			<input type="checkbox" /> This is checkbox <br />
+			<input type="checkbox" /> This is checkbox <br />
+		</div>
+
+		<label for="data">Data ridicarii comenzii:</label>
+		<input type="date" id="data" name="data" required>
+		<br>
+
+		<label for="observatii">Observații:</label>
+		<textarea id="observatii" name="observatii"></textarea>
+		<br>
+
+		<input type="submit" value="Trimite comanda">
+	</form>
+</main>
+<button> class="button"	onclick="AfisareComanda"</button>
+
+<p role="status">Current count: @comandaCurenta</p>
+<style>
+	.container {
+		border: 2px solid #ccc;
+		width: 300px;
+		height: 100px;
+		overflow-y: scroll;
+</style>
+
+@code {
+	
+	public String comandaCurenta;
+
+	public List<String> comanda = new List<String>();
+	public void AfisareComanda()
+	{
+		foreach(var s in comanda)
+		{
+			comandaCurenta += " " + s;
+		}
+		
+	}
+}
