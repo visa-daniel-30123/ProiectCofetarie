@@ -11105,23 +11105,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\flesa\\.nuget\\packages\\": {},
+    "C:\\Users\\danie\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\flesa\\Desktop\\ProiectCofetarie.Solution\\ProiectCofetarie.WebAPI\\ProiectCofetarie.WebAPI.csproj",
+      "projectUniqueName": "D:\\An3sem2\\ProiectCofetarieBun\\ProiectCofetarie.WebAPI\\ProiectCofetarie.WebAPI.csproj",
       "projectName": "ProiectCofetarie.WebAPI",
-      "projectPath": "C:\\Users\\flesa\\Desktop\\ProiectCofetarie.Solution\\ProiectCofetarie.WebAPI\\ProiectCofetarie.WebAPI.csproj",
-      "packagesPath": "C:\\Users\\flesa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\flesa\\Desktop\\ProiectCofetarie.Solution\\ProiectCofetarie.WebAPI\\obj\\",
+      "projectPath": "D:\\An3sem2\\ProiectCofetarieBun\\ProiectCofetarie.WebAPI\\ProiectCofetarie.WebAPI.csproj",
+      "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
+      "outputPath": "D:\\An3sem2\\ProiectCofetarieBun\\ProiectCofetarie.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\flesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11131,14 +11131,15 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.400-preview.23225.8\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\flesa\\Desktop\\ProiectCofetarie.Solution\\ProiectCofetarie.Library\\ProiectCofetarie.Library.csproj": {
-              "projectPath": "C:\\Users\\flesa\\Desktop\\ProiectCofetarie.Solution\\ProiectCofetarie.Library\\ProiectCofetarie.Library.csproj"
+            "D:\\An3sem2\\ProiectCofetarieBun\\ProiectCofetarie.Library\\ProiectCofetarie.Library.csproj": {
+              "projectPath": "D:\\An3sem2\\ProiectCofetarieBun\\ProiectCofetarie.Library\\ProiectCofetarie.Library.csproj"
             }
           }
         }
@@ -11199,7 +11200,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400-preview.23225.8\\RuntimeIdentifierGraph.json"
       }
     }
   }
