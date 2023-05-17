@@ -80,21 +80,14 @@
                 <label for="email"><b>Email</b></label>
                 <InputText type="text" placeholder="Enter Email" name="email" @bind-Value="username" required />
                 <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" required>
+                <InputText type="password" placeholder="Enter Password" name="password" @bind-Value="passwd" required/>
                 <label for="repeatPassword"><b>Repeat Password</b></label>
                 <input type="password" placeholder="Repeat Password" name="repeatPassword"
                        required>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" style="marginbottom: 15px"> Remember me
-                </label>
-                <p>
-                    By creating an account you agree to our <a href="#"
-                                                               style="color:dodgerblue">Terms & Privacy</a>
-                </p>
                     <div>
                     
                         <button type="button" class="cancel">Cancel</button>
-                        <button type="submit" class="signup" @onclick="SariPeAltaPagina"/>
+                        <button type="submit" class="signup" @onclick="SariPeAltaPagina">Sign Up</button>
                     </div>
             </div>
         </form>
@@ -102,10 +95,13 @@
 @code{
 
     private string? username { get; set; }
+    private string? passwd{ get; set; }
     void SariPeAltaPagina()
     {
         NavigationManager.NavigateTo("/login");
-        APIService.Post<User>(new User { Email = username, Name = username.Split('@')[0], Password = "passwd" });   
+        APIService.Post<User>(new User { Email = username, Name = username.Split('@')[0], Password = passwd});   
+        
+
     }
 
 }

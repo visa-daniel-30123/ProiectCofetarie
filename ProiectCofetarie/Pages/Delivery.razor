@@ -1,9 +1,7 @@
 ﻿@page "/delivery"
 @using ProiectCofetarie.Data
 @inject WeatherForecastService ForecastService
-
-
-
+@inject ListaComenzi comanda
 
 
 <main>
@@ -19,26 +17,9 @@
 		<input type="tel" id="telefon" name="telefon" required>
 		<br>
 
-		<label for="email">Email:</label>
-		<input type="email" id="email" name="email" required>
+		<label for="adresa">Adresa:</label>
+		<input type="adresa" id="adresa" name="adresa" required>
 		<br
-
-		<div class="container">
-			<input type="checkbox" /> William Tort <br />
-			<input type="checkbox" /> Nuts <br />
-			<input type="checkbox" /> Mango <br />
-			<input type="checkbox" />  CarrotCake <br />
-			<input type="checkbox" /> This is checkbox <br />
-			<input type="checkbox" /> This is checkbox <br />
-			<input type="checkbox" /> This is checkbox <br />
-			<input type="checkbox" /> This is checkbox <br />
-			<input type="checkbox" /> This is checkbox <br />
-			<input type="checkbox" /> This is checkbox <br />
-		</div>
-
-		<label for="data">Data ridicarii comenzii:</label>
-		<input type="date" id="data" name="data" required>
-		<br>
 
 		<label for="observatii">Observații:</label>
 		<textarea id="observatii" name="observatii"></textarea>
@@ -47,7 +28,12 @@
 		<input type="submit" value="Trimite comanda">
 	</form>
 </main>
-<button> class="button"	onclick="AfisareComanda"</button>
+
+
+
+<div>
+	<button type="submit" class="signup" @onclick="SariPeAltaPagina">Sign Up</button>
+</div>
 
 <p role="status">Current count: @comandaCurenta</p>
 <style>
@@ -62,12 +48,13 @@
 	
 	public String comandaCurenta;
 
-	public List<String> comanda = new List<String>();
-	public void AfisareComanda()
+
+	public void SariPeAltaPagina()
 	{
 		foreach(var s in comanda)
 		{
 			comandaCurenta += " " + s;
+			
 		}
 		
 	}

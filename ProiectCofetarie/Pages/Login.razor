@@ -3,6 +3,7 @@
 @inject AppCofetarie AppCofetarie
 @using ProiectCofetarie.Library;
 @using ProiectCofetarie.Library.Models;
+@inject NavigationManager NavigationManager
 <PageTitle>Login Page</PageTitle>
 
 <h3>Login</h3>
@@ -31,6 +32,7 @@
                 message = "Te-ai logat";
                 AppCofetarie.LoggedInUser = user;
                 AppCofetarie.IsLoggedIn = true;
+                NavigationManager.NavigateTo("/fetchdata");
             }
             else
             {
