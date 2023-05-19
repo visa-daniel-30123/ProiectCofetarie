@@ -98,7 +98,7 @@
     private string? passwd{ get; set; }
     void SariPeAltaPagina()
     {
-        NavigationManager.NavigateTo("/login");
+        NavigationManager.NavigateTo("/");
         APIService.Post<User>(new User { Email = username, Name = username.Split('@')[0], Password = passwd});   
         
 

@@ -1,5 +1,9 @@
 ﻿@page "/delivery"
 @using ProiectCofetarie.Data
+@using ProiectCofetarie.Library;
+@using ProiectCofetarie.Library.Models;
+@inject APIService APIService
+@inject AppCofetarie AppCofetarie
 @inject WeatherForecastService ForecastService
 @inject ListaComenzi comanda
 <div>
@@ -17,11 +21,12 @@
 <div>
 	<InputText DisplayName="email" @bind-Value="prod"></InputText>
 	<button type="submit" class="deletefromlist" @onclick="DeleteFromlist">Sterge</button>
+	<p>@message</p>
 
 </div>
 
 <main>
-	<h2>Ce doriti sa comandati?</h2>
+
 	<h2>  </h2>
 	<form>
 		<label for="nume">Nume:</label>
@@ -31,26 +36,23 @@
 
 		<label for="telefon">Telefon:</label>
 		<input type="tel" id="telefon" name="telefon" required>
+		<h3> </h3>
 		<br>
 
 		<label for="adresa">Adresa:</label>
 		<input type="adresa" id="adresa" name="adresa" required>
+			<h3></h3>
 		<br
+
 
 		<label for="observatii">Observații:</label>
 		<textarea id="observatii" name="observatii"></textarea>
 		<br>
-
-		<input type="submit" value="Trimite comanda">
+		<h2>Pretul curent al comenzii este @comanda.getpretfinal()</h2>
+		<button type="submit" value="Trimite comanda" @onclick="trimiteComada">Trimite comanda</button>
+		<p>@message</p>
 	</form>
 </main>
-
-
-<div>
-	<InputText DisplayName="email" @bind-Value="prod"></InputText>
-	<button type="submit" class="deletefromlist" @onclick="DeleteFromlist">Sterge</button>
-
-</div>
 
 
 <style>
@@ -62,10 +64,20 @@
 		h1{
 			text-align:center;
 		}
+		button{
+			height 100px;
+			width 300px;
+			font-size 16px;
+		
+		}
+		p{
+			color:red;
+		}
+
 </style>
 
 @code {
-
+	public string message;
 	public String comandaCurenta;
 	public String prod;
 
@@ -86,8 +98,20 @@
 			{
 				comanda.Remove(s);
 				comandaCurenta = "";
+				comanda.crestecomanda(-100);
 				break;
 			}
+		}
+	}
+	public void trimiteComada()
+	{
+		@if (@AppCofetarie.IsLoggedIn)
+		{
+			message = "comanda a fost plasata cu succes";
+		}
+		else
+		{
+			message = "trebuie sa va logati inainte de a plasa comanda";
 		}
 	}
 }
