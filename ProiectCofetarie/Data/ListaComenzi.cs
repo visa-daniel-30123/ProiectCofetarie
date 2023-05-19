@@ -1,7 +1,9 @@
-﻿namespace ProiectCofetarie.Data
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+
+namespace ProiectCofetarie.Data
 {
-    public class ListaComenzi : List<string>
+    public class ListaComenzi : ObservableCollection<string>
     {
-        
     }
 }

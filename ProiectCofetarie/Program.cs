@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ProiectCofetarie.Data;
 using ProiectCofetarie.Library;
+using ProiectCofetarie.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,8 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<APIService>();
 builder.Services.AddSingleton<AppCofetarie>();
-builder.Services.AddSingleton<ListaComenzi>();
+builder.Services.AddSingleton<MainLayout>();
+builder.Services.AddSingleton(new ListaComenzi());
 
 var app = builder.Build();
 

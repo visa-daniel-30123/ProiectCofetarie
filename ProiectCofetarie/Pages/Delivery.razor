@@ -2,7 +2,23 @@
 @using ProiectCofetarie.Data
 @inject WeatherForecastService ForecastService
 @inject ListaComenzi comanda
+<div>
+<h1>VIZUALIZARE COMANDA</h1>
+<select asp-for="SelectedString" class="form-control">
+	@foreach (var item in comanda)
+	{
+		<option value="@item">@item</option>
+	}
+</select>
+</div>
+<div>
+	<h3>Pentru a sterge un element din comanda introduceti numele apoi apasati butonul</h3>
+</div>
+<div>
+	<InputText DisplayName="email" @bind-Value="prod"></InputText>
+	<button type="submit" class="deletefromlist" @onclick="DeleteFromlist">Sterge</button>
 
+</div>
 
 <main>
 	<h2>Ce doriti sa comandati?</h2>
@@ -30,32 +46,48 @@
 </main>
 
 
-
 <div>
-	<button type="submit" class="signup" @onclick="SariPeAltaPagina">Sign Up</button>
+	<InputText DisplayName="email" @bind-Value="prod"></InputText>
+	<button type="submit" class="deletefromlist" @onclick="DeleteFromlist">Sterge</button>
+
 </div>
 
-<p role="status">Current count: @comandaCurenta</p>
+
 <style>
 	.container {
 		border: 2px solid #ccc;
 		width: 300px;
 		height: 100px;
 		overflow-y: scroll;
+		h1{
+			text-align:center;
+		}
 </style>
 
 @code {
-	
-	public String comandaCurenta;
 
+	public String comandaCurenta;
+	public String prod;
 
 	public void SariPeAltaPagina()
 	{
 		foreach(var s in comanda)
 		{
 			comandaCurenta += " " + s;
-			
+
 		}
-		
+
+	}
+	public void DeleteFromlist()
+	{
+		foreach (var s in comanda)
+		{
+			if (s == prod)
+			{
+				comanda.Remove(s);
+				comandaCurenta = "";
+				break;
+			}
+		}
 	}
 }

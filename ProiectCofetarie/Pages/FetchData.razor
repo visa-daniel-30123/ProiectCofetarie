@@ -1,7 +1,9 @@
 ﻿@page "/fetchdata"
 @using ProiectCofetarie.Data
+@using System.Reflection.Metadata;
 @inject WeatherForecastService ForecastService
 @inject ListaComenzi comanda
+@inject MainLayout main
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -111,6 +113,7 @@
     {
         carrotcake++;
         comanda.Add("CarrotCake");
+        
     }
 
     public void ExoticLight()
