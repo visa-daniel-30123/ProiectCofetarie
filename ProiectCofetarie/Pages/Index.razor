@@ -1,305 +1,116 @@
 ﻿@page "/"
 
-
 <PageTitle>Index</PageTitle>
 
-
-<img src="./logobun.jpg" alt="Italian Trulli" />
-
-<h1> Contact</h1>
-<h1>Telefon: 0727729151</h1>
-<h1>Email: client@sweetlovers.ro</h1>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Birthday cake</title>
-</head>
-<body>
-    <div class="container">
-        <div class="cake cake1">
-            <div class="cream"></div>
-            <div class="choco">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <div class="cake cake2">
-            <div class="choco">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="decoration">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <div class="cake cake3">
-            <div class="cream"></div>
-            <div class="choco">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <div class="cake cake4">
-            <div class="choco">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="decoration">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <div class="candle"></div>
-        <div class="flame"></div>
-    </div>
-</body>
-</html>
-
 <style>
-    h1 {
-      
-        color: mediumvioletred;
-       
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    img {
-        border-radius: 50%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 40%;
-     
-        
+
+    .slider-container {
+        width: 100%;
+        height: 40vh; /* Adjust the height as needed */
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 20px;
     }
-    body{
-        background-color: lightcoral;
+
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease;
     }
-    .container{
-    background: #ff017e;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 70%;
-  
-}
 
-.cake{
-    background: linear-gradient(145deg, #f0cbff,#caabe6);
-    height: 70px;
-    width: 180px;
-    border-radius: 5px;
-    position: absolute;
-}
+    .slide {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 
-.cake1{
-    bottom: 30px;
-    left: 60px;
-}
+    .description-container {
+        background-color: pink;
+        text-align: left;
+        border: 2px solid #ff1493;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+    }
 
-.cream{
-    background: #750de0;
-    height: 10px;
-    width: 100%;
-    position: absolute;
-    top: 30px;
-}
-
-.choco{
-    position: relative;
-}
-
-.choco div{
-    background: #663200;
-    height: 12.5px;
-    width: 25px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    position: absolute;
-}
-
-.choco div:nth-child(1){
-    left: -2px;
-}
-
-.choco div:nth-child(2){
-    left: 26px;
-}
-
-.choco div:nth-child(3){
-    left: 52px;
-}
-
-.choco div:nth-child(4){
-    left: 78px;
-}
-
-.choco div:nth-child(5){
-    left: 104px;
-}
-
-.choco div:nth-child(6){
-    left: 130px;
-}
-
-.choco div:nth-child(7){
-    left: 156px;
-}
-
-.cake2{
-    bottom: 96.5px;
-    left: 60px;
-    transform: scale(0.9);
-}
-
-.decoration div{
-    position: absolute;
-}
-
-.decoration div:nth-child(1){
-    height: 10px;
-    width: 10px;
-    background: #7105ed;
-    border-radius: 50%;
-    top: 20px;
-    left: 50px;
-}
-
-.decoration div:nth-child(2){
-    height: 6px;
-    width: 6px;
-    background: #7105ed;
-    border-radius: 50%;
-    top: 50px;
-    left: 30px;
-}
-
-.decoration div:nth-child(3){
-    height: 12px;
-    width: 12px;
-    background: #7105ed;
-    border-radius: 50%;
-    top: 30px;
-    left: 100px;
-}
-
-.decoration div:nth-child(4){
-    height: 4px;
-    width: 4px;
-    background: #7105ed;
-    border-radius: 50%;
-    top: 50px;
-    left: 130px;
-}
-
-.decoration div:nth-child(5){
-    height: 8px;
-    width: 8px;
-    background: #7105ed;
-    border-radius: 50%;
-    top: 30px;
-    left: 160px;
-}
-
-.decoration div:nth-child(6){
-    height: 9px;
-    width: 9px;
-    background: #7105ed;
-    border-radius: 50%;
-    top: 50px;
-    left: 60px;
-}
-
-.decoration div:nth-child(7){
-    height: 6.6px;
-    width: 6.6px;
-    background: #7105ed;
-    border-radius: 50%;
-    top: 30px;
-    left: 10px;
-}
-
-.cake3{
-    bottom: 157px;
-    left: 60px;
-    transform: scale(0.8);
-}
-
-.cake4{
-    left: 60px;
-    bottom: 209.5px;
-    transform: scale(0.7);
-}
-
-.candle{
-    position: absolute;
-    width: 10px;
-    height: 40px;
-    background-color: #a5a5a5;
-    bottom: 269.5px;
-    left: 143px;
-}
-
-.flame{
-    position: absolute;
-    background: #f4d03f;
-    opacity: 0.9;
-    box-shadow: inset 0px 15px 5px #d35400,
-    5px 15px 20px #fbffa3;
-    width: 15px;
-    height: 25px;
-    border-radius: 50%;
-    bottom: 308px;
-    left: 140.3px;
-    animation: flame 0.5s infinite;
-}
-}
+    .contact-container {
+        background-color: pink;
+        text-align: left;
+        margin-left: 0px;
+        padding: 20px;
+        margin-top: 20px;
+    }
 </style>
 
+@code {
+    private string[] imageUrls = new[]
+    {
+        "./mangopassion.jpg",
+        "./fistique.jpg",
+        "./sauvage.jpg",
+        "./williams.jpg"
+    };
+
+    private string currentImageUrl;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        SetRandomImage();
+        StartImageSlider();
+    }
+
+    private void SetRandomImage()
+    {
+        Random random = new Random();
+        int index = random.Next(0, imageUrls.Length);
+        currentImageUrl = imageUrls[index];
+    }
+
+    private async Task StartImageSlider()
+    {
+        while (true)
+        {
+            await Task.Delay(4000);
+            SetRandomImage();
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+}
+
+<div class="container">
+    <div class="slider-container">
+        <img class="slider" src="@currentImageUrl" alt="Slide">
+    </div>
 
 
+    <div class="contact-container">
+        <h2 class="contact-heading">Detalii de contact</h2>
+        <h4 class="contact-info">
+            Telefon: 0727729151
+        </h4>
+        <h4 class="contact-info">
+            Email: client@sweetlovers.ro
+        </h4>
+    </div>
 
-
-
-
-
-
-
-
+    <div class="description-container">
+        <div class="description">
+            <p>
+                Sweets Lovers este o aplicatie web dedicata iubitorilor dulcelui rafinat, echilibrat si aromat,
+                de la cele mai gustoase tonuri fructate pana la cele mai adanci arome de ciocolata neagra.
+            </p>
+            <p>
+                Aplicatia pune la dispozitie o varietate de posibile alegeri ce au la baza cele mai neasteptate combinatii de arome.
+                Preparatele sunt realizate numai din ingrediente naturale, atent selecționate pentru a obține idealul gustului bun.
+            </p>
+        </div>
+    </div>
+</div>
 
