@@ -15,7 +15,20 @@ namespace ProiectCofetarie.Library
     {
         public T? Get<T>(string value)
         {
-            string uri = $"https://localhost:7252/api/{typeof(T).Name}s/{value}";
+            string table;
+            switch (typeof(T).Name)
+            {
+                case "IstoricComenzi":
+                    table = "IstoricComenzis";
+                    break;
+                case "Produs":
+                    table = "Produs";
+                    break;
+                default:
+                    table = typeof(T).Name + "s";
+                    break;
+            }
+            string uri = $"https://localhost:7252/api/{table}/{value}";
             HttpWebRequest request = (HttpWebRequest) WebRequest.Create(uri);
             string responseString = "";
             try
@@ -36,7 +49,20 @@ namespace ProiectCofetarie.Library
         }
         public T? Get<T>()
         {
-            string uri = $"https://localhost:7252/api/{typeof(T).Name}s";
+            string table;
+            switch (typeof(T).Name)
+            {
+                case "IstoricComenzi":
+                    table = "IstoricComenzis";
+                    break;
+                case "Produs":
+                    table = "Produs";
+                    break;
+                default:
+                    table = typeof(T).Name + "s";
+                    break;
+            }
+            string uri = $"https://localhost:7252/api/{table}";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             string responseString = "";
             try
@@ -64,7 +90,7 @@ namespace ProiectCofetarie.Library
                     table = "IstoricComenzis";
                     break;
                 case "Produs":
-                    table = "Produse";
+                    table = "Produs";
                     break;
                 default:
                     table = typeof(T).Name+"s"; 

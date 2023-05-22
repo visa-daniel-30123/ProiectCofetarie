@@ -23,24 +23,24 @@ namespace ProiectCofetarie.WebAPI.Controllers
 
         // GET: api/Produs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Produs>>> GetProduse()
+        public async Task<ActionResult<IEnumerable<Produs>>> GetProdus()
         {
-          if (_context.Produse == null)
+          if (_context.Produs == null)
           {
-              return NotFound();
+                return NotFound(); //cu ma-ta
           }
-            return await _context.Produse.ToListAsync();
+            return await _context.Produs.ToListAsync();
         }
 
         // GET: api/Produs/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Produs>> GetProdus(int id)
         {
-          if (_context.Produse == null)
+          if (_context.Produs == null)
           {
               return NotFound();
           }
-            var produs = await _context.Produse.FindAsync(id);
+            var produs = await _context.Produs.FindAsync(id);
 
             if (produs == null)
             {
@@ -68,7 +68,7 @@ namespace ProiectCofetarie.WebAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProdusExists(id))
+                if (!Produsxists(id))
                 {
                     return NotFound();
                 }
@@ -86,11 +86,11 @@ namespace ProiectCofetarie.WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Produs>> PostProdus(Produs produs)
         {
-          if (_context.Produse == null)
+          if (_context.Produs == null)
           {
-              return Problem("Entity set 'ProiectCofetarieWebAPIContext.Produse'  is null.");
+              return Problem("Entity set 'ProiectCofetarieWebAPIContext.Produs'  is null.");
           }
-            _context.Produse.Add(produs);
+            _context.Produs.Add(produs);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetProdus", new { id = produs.Id }, produs);
@@ -100,25 +100,25 @@ namespace ProiectCofetarie.WebAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProdus(int id)
         {
-            if (_context.Produse == null)
+            if (_context.Produs == null)
             {
                 return NotFound();
             }
-            var produs = await _context.Produse.FindAsync(id);
+            var produs = await _context.Produs.FindAsync(id);
             if (produs == null)
             {
                 return NotFound();
             }
 
-            _context.Produse.Remove(produs);
+            _context.Produs.Remove(produs);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool ProdusExists(int id)
+        private bool Produsxists(int id)
         {
-            return (_context.Produse?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Produs?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
