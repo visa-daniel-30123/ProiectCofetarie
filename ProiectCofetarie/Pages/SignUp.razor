@@ -90,10 +90,13 @@
         <label for="password"><b>Password</b></label>
         <InputText type="password" placeholder="Enter Password" name="password" @bind-Value="passwd" required />
         <label for="repeatPassword"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="repeatPassword" required>
+        <input type="password" placeholder="Repeat Password" name="repeatPassword" @bind-value="repasswd" required>
         <div>
             <button type="button" class="cancel">Cancel</button>
             <button type="submit" class="signup" @onclick="SariPeAltaPagina">Sign Up</button>
+        </div>
+        <div>
+            <p>@messignup</p>
         </div>
     </div>
 </form>
@@ -102,10 +105,22 @@
 
     private string? username { get; set; }
     private string? passwd { get; set; }
+    private string? repasswd{ get; set; }
+    private string messignup = "0";
     void SariPeAltaPagina()
     {
-        NavigationManager.NavigateTo("/fetchdata");
-        APIService.Post<User>(new User { Email = username, Name = username.Split('@')[0], Password = passwd });
+        bool containarond = username.Contains("@");
+        var user = APIService.Get<User>(username);
+        if (containarond && passwd.Equals(repasswd) && user==null) {
+            NavigationManager.NavigateTo("/login");
+            APIService.Post<User>(new User { Email = username, Name = username.Split('@')[0], Password = passwd });
+        }
+        else
+        {
+            messignup = "Adresa de email nu este valida";
+            NavigationManager.NavigateTo("/SingUp");
+        }
+
 
 
     }

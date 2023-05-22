@@ -12,6 +12,11 @@ namespace ProiectCofetarie
         public int Pret { get; set; }
 		[JsonPropertyName("cantitate")]
 		public int Cantitate {get; set; }
-	
+
+
+		public void scadecant(int x)
+		{
+			this.Cantitate -= x;
+		}
 	}
 }
