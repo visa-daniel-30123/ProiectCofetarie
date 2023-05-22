@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace ProiectCofetarie.Library.Models
 {
-    public class User
+    public class User : IDatabaseTable
     {
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
         [JsonPropertyName("name")]
         public string Name { get; set; }
         [JsonPropertyName("email")]

@@ -120,5 +120,48 @@ namespace ProiectCofetarie.Library
                 return;
             }
         }
+
+        public void Update<T>(T entityToUpdate)
+        {
+            string table;
+            switch (typeof(T).Name)
+            {
+                case "IstoricComenzi":
+                    table = "IstoricComenzis";
+                    break;
+                case "Produs":
+                    table = "Produs";
+                    break;
+                default:
+                    table = typeof(T).Name + "s";
+                    break;
+            }
+
+            string uri = $"https://localhost:7252/api/{table}/{(entityToUpdate as IDatabaseTable)?.Id}";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+            request.Method = "PUT";
+            request.ContentType = "application/json";
+            string json = JsonSerializer.Serialize(entityToUpdate);
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(json);
+            }
+
+            try
+            {
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string responseString = reader.ReadToEnd();
+                }
+            }
+            catch (WebException)
+            {
+                return;
+            }
+        }
+
     }
 }

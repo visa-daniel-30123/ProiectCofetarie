@@ -1,11 +1,11 @@
-﻿using System.Text.Json.Serialization;
+﻿using ProiectCofetarie.Library.Models;
+using System.Text.Json.Serialization;
 
 namespace ProiectCofetarie
 {
-	public class Produs
-	{
-		[JsonPropertyName("id")]
-		public int Id { get; set; }
+	public class Produs : IDatabaseTable
+    {
+	
 		[JsonPropertyName ("denumireProd")]
         public string DenumireProd { get; set; }
         [JsonPropertyName("pret")]

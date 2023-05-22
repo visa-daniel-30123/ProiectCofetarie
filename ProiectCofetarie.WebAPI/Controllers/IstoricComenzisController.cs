@@ -25,22 +25,22 @@ namespace ProiectCofetarie.WebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<IstoricComenzi>>> GetIstoricComenzi()
         {
-          if (_context.IstoricComenzi == null)
+          if (_context.IstoricComenzis == null)
           {
               return NotFound();
           }
-            return await _context.IstoricComenzi.ToListAsync();
+            return await _context.IstoricComenzis.ToListAsync();
         }
 
         // GET: api/IstoricComenzis/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<IstoricComenzi>> GetIstoricComenzi(int id)
+        [HttpGet("{email}")]
+        public async Task<ActionResult<IstoricComenzi>> GetIstoricComenzi(string email)
         {
-          if (_context.IstoricComenzi == null)
+          if (_context.IstoricComenzis == null)
           {
               return NotFound();
           }
-            var istoricComenzi = await _context.IstoricComenzi.FindAsync(id);
+            var istoricComenzi = _context.IstoricComenzis.Where(c=>c.Emailclient == email).FirstOrDefault();
 
             if (istoricComenzi == null)
             {
@@ -86,11 +86,11 @@ namespace ProiectCofetarie.WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<IstoricComenzi>> PostIstoricComenzi(IstoricComenzi istoricComenzi)
         {
-          if (_context.IstoricComenzi == null)
+          if (_context.IstoricComenzis == null)
           {
               return Problem("Entity set 'ProiectCofetarieWebAPIContext.IstoricComenzi'  is null.");
           }
-            _context.IstoricComenzi.Add(istoricComenzi);
+            _context.IstoricComenzis.Add(istoricComenzi);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetIstoricComenzi", new { id = istoricComenzi.Id }, istoricComenzi);
@@ -100,17 +100,17 @@ namespace ProiectCofetarie.WebAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteIstoricComenzi(int id)
         {
-            if (_context.IstoricComenzi == null)
+            if (_context.IstoricComenzis == null)
             {
                 return NotFound();
             }
-            var istoricComenzi = await _context.IstoricComenzi.FindAsync(id);
+            var istoricComenzi = await _context.IstoricComenzis.FindAsync(id);
             if (istoricComenzi == null)
             {
                 return NotFound();
             }
 
-            _context.IstoricComenzi.Remove(istoricComenzi);
+            _context.IstoricComenzis.Remove(istoricComenzi);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -118,7 +118,7 @@ namespace ProiectCofetarie.WebAPI.Controllers
 
         private bool IstoricComenziExists(int id)
         {
-            return (_context.IstoricComenzi?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.IstoricComenzis?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

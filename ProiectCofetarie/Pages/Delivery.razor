@@ -10,7 +10,7 @@
 <div class="container">
     <h2 class="title">Vizualizare comandă:</h2>
     <select asp-for="SelectedString" class="form-control">
-        @foreach (var item in comanda)
+        @foreach (var item in comanda) 
         {
             <option value="@item">@item</option>
         }
@@ -172,13 +172,17 @@
         bool isValid = Regex.IsMatch(telnumer, @"^\d{10}$");
         @if (@AppCofetarie.IsLoggedIn && isValid)
         {
-         
-            foreach(var s in comanda)
+
+            foreach (var s in comanda)
             {
                 var produs = APIService.Get<Produs>(s);
-                produs.Cantitate -= 1; 
-
+                produs.Cantitate -= 1;
+                APIService.Update<Produs>(produs);
             }
+
+            APIService.Post<IstoricComenzi>(new IstoricComenzi { Emailclient = @AppCofetarie?.LoggedInUser?.Email, Data = DateTime.Today.ToString(), Comanda = string.Join(',', comanda) });
+
+        
 
             message = "comanda a fost plasata cu succes";
         }

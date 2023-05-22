@@ -15,6 +15,6 @@ namespace ProiectCofetarie.WebAPI.Data
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Produs> Produs { get; set; }
-        public DbSet<IstoricComenzi> IstoricComenzi { get; set; }
+        public DbSet<IstoricComenzi> IstoricComenzis { get; set; }
     }
 }

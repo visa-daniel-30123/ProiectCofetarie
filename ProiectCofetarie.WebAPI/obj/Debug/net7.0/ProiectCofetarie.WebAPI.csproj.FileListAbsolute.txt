@@ -566,3 +566,4 @@ D:\An3sem2\ProiectCofetarieBun\ProiectCofetarie.WebAPI\obj\Debug\net7.0\ProiectC
 D:\An3sem2\ProiectCofetarieBun\ProiectCofetarie.WebAPI\obj\Debug\net7.0\ref\ProiectCofetarie.WebAPI.dll
 D:\An3sem2\ProiectCofetarieBun\ProiectCofetarie.WebAPI\obj\Debug\net7.0\ProiectCofetarie.WebAPI.Migrations.initial.resources
 D:\An3sem2\ProiectCofetarieBun\ProiectCofetarie.WebAPI\obj\Debug\net7.0\ProiectCofetarie.WebAPI.csproj.GenerateResource.cache
+D:\An3sem2\ProiectCofetarieBun\ProiectCofetarie.WebAPI\obj\Debug\net7.0\ProiectCofetarie.WebAPI.Migrations.comandadaniel.resources
