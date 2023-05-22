@@ -8,7 +8,7 @@
 @inject ListaComenzi comanda
 
 <div class="container">
-    <h2 class="title">Vizualizare comandă:</h2>
+    <h2 class="title">Vizualizare comandă:@message</h2>
     <select asp-for="SelectedString" class="form-control">
         @foreach (var item in comanda) 
         {
@@ -155,40 +155,58 @@
 
     public void DeleteFromlist()
     {
-        foreach (var s in comanda)
+        bool exista = false;
+        foreach (var s1 in comanda)
         {
-            if (s == prod)
+            if (s1.Equals(prod))
+                exista = true;
+        }
+        if (exista)
+        {
+            var produs = APIService.Get<Produs>(prod);
+            comanda.crestecomanda(-produs.Pret);
+            foreach (var s in comanda)
             {
-                comanda.Remove(s);
-                comandaCurenta = "";
-                comanda.crestecomanda(-100);
-                break;
+                if (s == prod)
+                {
+                    comanda.Remove(s);
+                    comandaCurenta = "";
+                    break;
+                }
             }
         }
+
+
     }
 
     public void trimiteComada()
     {
-        bool isValid = Regex.IsMatch(telnumer, @"^\d{10}$");
-        @if (@AppCofetarie.IsLoggedIn && isValid)
-        {
-
-            foreach (var s in comanda)
+            bool isValid = Regex.IsMatch(telnumer, @"^\d{10}$");
+            @if (@AppCofetarie.IsLoggedIn && isValid)
             {
-                var produs = APIService.Get<Produs>(s);
-                produs.Cantitate -= 1;
-                APIService.Update<Produs>(produs);
+
+                foreach (var s in comanda)
+                {
+                    var produs = APIService.Get<Produs>(s);
+                    produs.Cantitate -= 1;
+                    APIService.Update<Produs>(produs);
+                }
+
+               // APIService.Post<IstoricComenzi>(new IstoricComenzi { Emailclient = @AppCofetarie?.LoggedInUser?.Email, Data = DateTime.Today.ToString(), Comanda = string.Join(',', comanda) });
+
+
+
+                message = "comanda a fost plasata cu succes";
+                foreach (var s1 in comanda)
+                {
+                    comanda.Remove(s1);
+                }
+                comanda.setpretfinal(0);
             }
-
-            APIService.Post<IstoricComenzi>(new IstoricComenzi { Emailclient = @AppCofetarie?.LoggedInUser?.Email, Data = DateTime.Today.ToString(), Comanda = string.Join(',', comanda) });
-
-        
-
-            message = "comanda a fost plasata cu succes";
-        }
-        else
-        {
-            message = "trebuie sa va logati inainte de a plasa comanda";
-        }
+            else
+            {
+                message = "trebuie sa va logati inainte de a plasa comanda";
+            }
     }
+
 }

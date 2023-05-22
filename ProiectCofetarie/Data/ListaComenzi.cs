@@ -12,5 +12,6 @@ namespace ProiectCofetarie.Data
             pretfinal += n;
         }
         public int getpretfinal() {  return pretfinal; }
+        public void setpretfinal(int n) {  pretfinal = n; }
     }
 }

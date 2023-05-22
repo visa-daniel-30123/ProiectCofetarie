@@ -1,7 +1,10 @@
 ﻿@page "/fetchdata"
-@using ProiectCofetarie.Data
-@using System.Reflection.Metadata;
+@using ProiectCofetarie.Data;
+@using ProiectCofetarie.Library;
+@using ProiectCofetarie.Library.Models;
 @inject WeatherForecastService ForecastService
+@inject APIService APIService
+@inject AppCofetarie AppCofetarie
 @inject ListaComenzi comanda
 @inject MainLayout main
 
@@ -98,65 +101,78 @@
  
 @code {
 
-    public int after8 = 0;
+
 
     public void AfterEight()
     {
         String den = "AfterEight";
         comanda.Add(den);
-        comanda.crestecomanda(100);
-        after8++;
+        var produs = APIService.Get<Produs>("AfterEight");
+        comanda.crestecomanda(produs.Pret);
     }
 
-    public int carrotcake = 0;
 
     public void CarrotCake()
     {
-        carrotcake++;
         comanda.Add("CarrotCake");
-        comanda.crestecomanda(100);
+        var produs = APIService.Get<Produs>("CarrotCake");
+        comanda.crestecomanda(produs.Pret);
 
     }
 
     public void ExoticLight()
     {
         comanda.Add("ExoticLight");
-        comanda.crestecomanda(100);
+        var produs = APIService.Get<Produs>("ExoticLight");
+        comanda.crestecomanda(produs.Pret);
     }
     public void Fistique()
     {
         comanda.Add("Fistique");
-        comanda.crestecomanda(100);
+
+        var produs = APIService.Get<Produs>("Fistique");
+        comanda.crestecomanda(produs.Pret);
     }
 
     public void MangoPassion()
     {
         comanda.Add("MangoPassion");
-        comanda.crestecomanda(100);
+        var produs = APIService.Get<Produs>("MangoPassion");
+        comanda.crestecomanda(produs.Pret);
     }
     public void Nuts()
     {
         comanda.Add("Nuts");
-        comanda.crestecomanda(100);
+        var produs = APIService.Get<Produs>("Nuts");
+        comanda.crestecomanda(produs.Pret);
     }
     public void Rawvegan()
     {
         comanda.Add("RawVegan");
-        comanda.crestecomanda(100);
+
+        var produs = APIService.Get<Produs>("Rawvegan");
+        comanda.crestecomanda(produs.Pret);
     }
 
     public void Sauvage()
     {
         comanda.Add("Sauvage");
-        comanda.crestecomanda(100);
+
+        var produs = APIService.Get<Produs>("Sauvage");
+        comanda.crestecomanda(produs.Pret);
     }
     public void WhiteFantasy()
     {
         comanda.Add("WhiteFantasy");
-        comanda.crestecomanda(100);
+
+        var produs = APIService.Get<Produs>("WhiteFantasy");
+        comanda.crestecomanda(produs.Pret);
     }
     public void Williams()
     {
-        comanda.Add("Williams"); comanda.crestecomanda(100);
+        comanda.Add("Williams");
+
+        var produs = APIService.Get<Produs>("Williams");
+        comanda.crestecomanda(produs.Pret);
     }
 }
