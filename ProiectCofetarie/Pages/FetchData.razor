@@ -105,74 +105,138 @@
 
     public void AfterEight()
     {
-        String den = "AfterEight";
-        comanda.Add(den);
         var produs = APIService.Get<Produs>("AfterEight");
-        comanda.crestecomanda(produs.Pret);
+        if (produs.Cantitate > 0)
+        {
+            String den = "AfterEight";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
+
+        }
     }
 
 
     public void CarrotCake()
     {
-        comanda.Add("CarrotCake");
         var produs = APIService.Get<Produs>("CarrotCake");
-        comanda.crestecomanda(produs.Pret);
+        if (produs.Cantitate > 0)
+        {
+            String den = "CarrotCake";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
+
+        }
 
     }
 
     public void ExoticLight()
     {
-        comanda.Add("ExoticLight");
         var produs = APIService.Get<Produs>("ExoticLight");
-        comanda.crestecomanda(produs.Pret);
+        if (produs.Cantitate > 0)
+        {
+            String den = "ExoticLight";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
+
+        }
     }
     public void Fistique()
     {
-        comanda.Add("Fistique");
-
         var produs = APIService.Get<Produs>("Fistique");
-        comanda.crestecomanda(produs.Pret);
+        if (produs.Cantitate > 0)
+        {
+            String den = "Fistiqoue";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
+
+        }
     }
 
     public void MangoPassion()
     {
-        comanda.Add("MangoPassion");
         var produs = APIService.Get<Produs>("MangoPassion");
-        comanda.crestecomanda(produs.Pret);
+        if (produs.Cantitate > 0)
+        {
+            String den = "MangoPassion";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
+
+        }
     }
     public void Nuts()
     {
-        comanda.Add("Nuts");
         var produs = APIService.Get<Produs>("Nuts");
-        comanda.crestecomanda(produs.Pret);
+        if (produs.Cantitate > 0)
+        {
+            String den = "Nuts";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
+
+        }
     }
     public void Rawvegan()
     {
-        comanda.Add("RawVegan");
+        var produs = APIService.Get<Produs>("RawVegan");
+        if (produs.Cantitate > 0)
+        {
+            String den = "RawVegan";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
 
-        var produs = APIService.Get<Produs>("Rawvegan");
-        comanda.crestecomanda(produs.Pret);
+        }
     }
 
     public void Sauvage()
     {
-        comanda.Add("Sauvage");
-
         var produs = APIService.Get<Produs>("Sauvage");
-        comanda.crestecomanda(produs.Pret);
+        if (produs.Cantitate > 0)
+        {
+            String den = "Sauvage";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
+
+        }
     }
     public void WhiteFantasy()
     {
-        comanda.Add("WhiteFantasy");
-
         var produs = APIService.Get<Produs>("WhiteFantasy");
-        comanda.crestecomanda(produs.Pret);
+        if (produs.Cantitate > 0)
+        {
+            String den = "WhiteFantasy";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
+
+        }
     }
     public void Williams()
     {
-        comanda.Add("Williams");
-
         var produs = APIService.Get<Produs>("Williams");
-        comanda.crestecomanda(produs.Pret);
+        if (produs.Cantitate > 0)
+        {
+            String den = "Williams";
+            comanda.Add(den);
+            comanda.crestecomanda(produs.Pret);
+            produs.Cantitate -= 1;
+            APIService.Update<Produs>(produs);
+
+        }
     }
 }

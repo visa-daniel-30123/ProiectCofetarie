@@ -6,6 +6,7 @@
 @inject APIService APIService
 @inject AppCofetarie AppCofetarie
 @inject ListaComenzi comanda
+@inject NavigationManager NavigationManager
 <p>@message</p>
 <div class="container">
     <h2 class="title">Vizualizare comandă:</h2>
@@ -166,6 +167,8 @@
         {
             var produs = APIService.Get<Produs>(prod);
             comanda.crestecomanda(-produs.Pret);
+            produs.Cantitate++;
+            APIService.Update<Produs>(produs);
             foreach (var s in comanda)
             {
                 if (s == prod)
@@ -186,28 +189,32 @@
             @if (@AppCofetarie.IsLoggedIn && isValid && adresa.Length!=0 && numereal.Length!=0 && comanda.Count>0)
             {
 
-                foreach (var s in comanda)
-                {
-                    var produs = APIService.Get<Produs>(s);
-                    produs.Cantitate -= 1;
-                    APIService.Update<Produs>(produs);
-                }
-
                 APIService.Post<IstoricComenzi>(new IstoricComenzi { Emailclient = @AppCofetarie?.LoggedInUser?.Email, Data = DateTime.Today.ToString(), Comanda = string.Join(',', comanda) });
-
+                
+           
+                foreach (var s in comanda)
+            
+                {
+                
+                    var produs = APIService.Get<Produs>(s);
+                
+                    produs.Cantitate -= 1;
+                
+                    APIService.Update<Produs>(produs);
+            
+                }
+                 comanda.setpretfinal(0);
+               comanda.Clear();
 
 
                 message = "comanda a fost plasata cu succes";
-                foreach (var s1 in comanda)
-                {
-                    comanda.Remove(s1);
-                }
-                comanda.setpretfinal(0);
+         
             }
             else
             {
                 message = "trebuie sa va logati inainte de a plasa comanda";
             }
+            NavigationManager.NavigateTo("/login");
     }
 
 }
