@@ -6,9 +6,9 @@
 @inject APIService APIService
 @inject AppCofetarie AppCofetarie
 @inject ListaComenzi comanda
-
+<p>@message</p>
 <div class="container">
-    <h2 class="title">Vizualizare comandă:@message</h2>
+    <h2 class="title">Vizualizare comandă:</h2>
     <select asp-for="SelectedString" class="form-control">
         @foreach (var item in comanda) 
         {
@@ -23,14 +23,13 @@
             <InputText id="prod" name="prod" @bind-Value="prod"></InputText>
         </div>
         <button type="submit" class="delete-btn" @onclick="DeleteFromlist">Sterge</button>
-        <p>@message</p>
     </div>
 
 
     <form>
         <div class="form-group">
             <label for="nume">Nume:</label>
-            <input type="text" id="nume" name="nume" required>
+            <input type="text" id="nume" name="nume" @bind-value="numereal" required>
         </div>
 
         <div class="form-group">
@@ -40,7 +39,7 @@
 
         <div class="form-group">
             <label for="adresa">Adresa:</label>
-            <input type="adresa" id="adresa" name="adresa" required>
+            <input type="adresa" id="adresa" name="adresa" @bind-value="adresa" required>
         </div>
 
         <div class="form-group">
@@ -140,6 +139,8 @@
 </style>
 
 @code {
+    public string adresa;
+    public string numereal;
     public string message;
     public String comandaCurenta;
     public String prod;
@@ -182,7 +183,7 @@
     public void trimiteComada()
     {
             bool isValid = Regex.IsMatch(telnumer, @"^\d{10}$");
-            @if (@AppCofetarie.IsLoggedIn && isValid)
+            @if (@AppCofetarie.IsLoggedIn && isValid && adresa.Length!=0 && numereal.Length!=0 && comanda.Count>0)
             {
 
                 foreach (var s in comanda)
@@ -192,7 +193,7 @@
                     APIService.Update<Produs>(produs);
                 }
 
-               // APIService.Post<IstoricComenzi>(new IstoricComenzi { Emailclient = @AppCofetarie?.LoggedInUser?.Email, Data = DateTime.Today.ToString(), Comanda = string.Join(',', comanda) });
+                APIService.Post<IstoricComenzi>(new IstoricComenzi { Emailclient = @AppCofetarie?.LoggedInUser?.Email, Data = DateTime.Today.ToString(), Comanda = string.Join(',', comanda) });
 
 
 
